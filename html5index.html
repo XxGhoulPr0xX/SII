@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<!--
+SII - MAYO-2016- ING. DAVID SIBAJA REYES
+IT-TLÁHUAC	
+-->
+<html>
+
+<title>SII</title>
+<meta charset="utf-8" />
+<meta name="SII" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css" />
+<!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+    // Código JavaScript aquí
+});
+</script>
+
+<link type="text/css" rel="Stylesheet" href="assets/css/jquery.validity.css" />
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.validity.js"></script>
+<!--  validar datos -->
+<script type="text/javascript">
+	$.validity.setup({ outputMode: "label" });
+	$(function () {
+		$("#fstudents").validity(function () {
+			$("#usuariostd")
+				.require()
+				.match("number")
+				.nonHtml()
+				.range(8100001, 9999999999, "número de control ínvalido");
+			$("#passwordstd")
+				.require()
+				.match("number")
+				.nonHtml()
+				.range(1000, 9999, "el NIP debe de ser de 4 dígitos");
+		});
+
+		$("#fpersonal").validity(function () {
+			$("#usuarioemp")
+				.require()
+				.nonHtml()
+				.match(/^[A-Za-z0-9_-]{6,18}$/, "alfanuméricos ó max. 18 caracteres");
+			$("#passwordemp")
+				.require()
+				.nonHtml()
+				.match(/^[A-Za-z0-9_-]{6,18}$/, "alfanuméricos ó max. 18 caracteres");
+		});
+
+	});
+</script>
+
+
+
+<header>
+	<!--  validar datos -->
+	<h1 id="encabezadotec"><a> href="#"</a></h1>
+</header>
+
+<body>
+
+	<!-- Wrapper ESTA ENVOLTURA CONTIENE EL RESTO DE LA ESTRUCTURA-->
+	<div id="wrapper">
+
+		<!-- Navegación del menú -->
+		<nav id="nav">
+			<a href="#inicio" class="icon fa-home active"><span>Inicio</span></a>
+			<a href="#employer" class="icon fa-briefcase"><span>Personal</span></a>
+			<a href="#student" class="icon fa-graduation-cap"><span>Estudiantes</span></a>
+			<a href="#aspirantes" class="icon fa-users"><span>Aspirantes</span></a>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- INICIO -->
+			<article id="inicio" class="panel">
+				<header>
+					<h1>SII</h1>
+					<p>Sistema Integral de Información </p>
+				</header>
+				<a href="#student" class="jumplink pic">
+					<span class="arrow icon  fa-play"></span>
+					<!--<img src="images/me.png" alt=""  width="350" height= "230"  align="bottom"/> -->
+				</a>
+			</article>
+
+			<!-- Administrativos, empleados o personal -->
+			<article id="employer" class="panel">
+				<header>
+					<h2>Personal</h2>
+				</header>
+				<form action="indexenter.php" method="post" name="fpersonal" id="fpersonal">
+					<div>
+						<div class="row">
+							<div class="6u 12u$(mobile)">
+								<input type="text" id="usuarioemp" name="usuarioemp" placeholder="usuario" />
+							</div>
+							<div class="6u$ 12u$(mobile)">
+								<input type="password" id="passwordemp" name="passwordemp" placeholder="Password" />
+								<input type="hidden" id="tipoemp" name="tipoemp" value="p" />
+							</div>
+							<div class="12u$">
+								<input type="submit" value="aceptar" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</article>
+
+			<!-- LOG ON - Estudiantes -->
+			<article id="student" class="panel">
+				<header>
+					<h2>Estudiantes</h2>
+				</header>
+				<form action="indexenter.php" method="post" name="fstudents" id="fstudents">
+					<div>
+						<div class="row">
+							<div class="6u 12u$(mobile)">
+								<input type="text" id="usuariostd" name="usuariostd" placeholder="usuario " />
+							</div>
+							<div class="6u$ 12u$(mobile)">
+								<input type="password" id="passwordstd" name="passwordstd" placeholder="Password" />
+								<input type="hidden" id="tipostd" name="tipostd" value="a" />
+							</div>
+							<div class="12u$">
+								<input type="submit" value="aceptar" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</article>
+
+		<!-- LOG ON - Estudiantes -->
+		<article id="aspirantes" class="panel">
+			<header>
+				<h2>Aspirantes</h2>
+			</header>
+			<form action="indexenter.php" method="post" name="faspirantes" id="faspirantes">
+				<div>
+					<div class="row">
+						<div class="6u 12u$(mobile)">
+							<input type="text" id="usuariostd" name="usuariostd" placeholder="usuario " />
+						</div>
+						<div class="6u$ 12u$(mobile)">
+							<input type="password" id="passwordstd" name="passwordstd" placeholder="Password" />
+							<input type="hidden" id="tipostd" name="tipostd" value="a" />
+						</div>
+						<div class="12u$">
+							<input type="submit" value="aceptar" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</article>
+
+
+
+	</div> <!-- FIN DEL WRAPPER -->
+
+	<!-- Scripts -->
+	<!--<script src="assets/js/jquery.min.js"></script>-->
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/skel-viewport.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
+<footer>
+
+	<!-- Footer -->
+	<div id="footer">
+		<ul class="copyright">
+			<li>Sistema Integral de Información. &copy; IT-Tláhuac</li>
+			<li>Centro de Cómputo</li>
+		</ul>
+	</div>
+</footer>
+
+</html>
